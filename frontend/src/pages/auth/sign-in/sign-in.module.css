@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Modern CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.container {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        height: 100vh;
+}
+
+/* Outer framed background to match screenshot */
+.pageBackground {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,#b54cfb,#6f2bdc);
+}
+
+/* Centered rounded card */
+.card {
+    width: 92%;
+    max-width: 1100px;
+    height: 78vh;
+    min-height: 600px; /* Ensure minimum height for content */
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+.welcomeSection {
+    background: linear-gradient(135deg, #7E22CE, #9333EA);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcomeContent {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
+
+.welcomeTitle {
+    font-size: 3.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.welcomeSubtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.wavesBackground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,#4fc1ff,#6b8df2);
+    animation: wave 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes wave {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+}
+
+.loginCardContainer {
+    width: 100%;
+    background-color: white;
+    padding: 3.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.loginCardContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure form takes available space but doesn't overflow */
+.loginCardContainer form {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.greetingText {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.greeting {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.welcomeBack {
+    color: #9333EA;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0.5rem 0;
+}
+
+.loginTitle {
+    color: #9333EA;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.inputGroup {
+    margin-bottom: 1.5rem;
+}
+
+.inputLabel {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-weight: 400;
+}
+
+.loginInput {
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+}
+
+.loginInput:focus {
+    outline: none;
+    border-bottom-color: #9333EA;
+}
+
+.loginInput::placeholder {
+    color: #ccc;
+}
+
+.rememberForgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: #9333EA;
+}
+
+.forgotPassword {
+    color: #9333EA;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.loginButton {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(90deg,#1e90ff 0%, #6a11cb 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 1rem 0;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.loginButton:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+.loginButton:hover:not(:disabled) {
+    background-color: #7E22CE;
+}
+
+/* Password validation styles */
+.passwordRequirements {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.passwordRequirements ul {
+    list-style: none;
+    margin-top: 0.25rem;
+    padding-left: 0.5rem;
+}
+
+.passwordRequirements li {
+    margin: 0.25rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.passwordRequirements li::before {
+    content: "•";
+    margin-right: 0.5rem;
+}
+
+.valid {
+    color: #10B981;
+}
+
+.invalid {
+    color: #666;
+}
+
+.inputError {
+    border-bottom-color: #EF4444 !important;
+}
+
+.passwordError {
+    color: #EF4444;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    font-weight: normal;
+}
+
+/* Password input wrapper for show/hide button */
+.passwordInputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.showPasswordButton {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+}
+
+.showPasswordButton:hover {
+    color: #9333EA;
+}
+
+/* Strength indicator styles */
+.strengthIndicator {
+    margin-top: 0.5rem;
+}
+
+.strengthLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.strengthBar {
+    height: 4px;
+    background-color: #E5E7EB;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.strengthBarFill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+/* Strength levels */
+.weak {
+    color: #EF4444;
+}
+
+.strengthBarFill.weak {
+    background-color: #EF4444;
+}
+
+.medium {
+    color: #F59E0B;
+}
+
+.strengthBarFill.medium {
+    background-color: #F59E0B;
+}
+
+.strong {
+    color: #10B981;
+}
+
+.strengthBarFill.strong {
+    background-color: #10B981;
+}
+
+/* Google button (secondary) */
+.googleButton {
+    width: 100%;
+    padding: 0.7rem;
+    background: #ffffff;
+    border: 2px solid #e6eefb;
+    color: #16325c;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+.googleButton:hover {
+    background: #f7fbff;
+}
+
+.googleIcon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.signupLink {
+    color: #9333EA;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #e6eefb;
+}
+
+.errorMessage {
+    color: #e11d48;
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: -1.7rem;
+}
